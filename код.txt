@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+#include <Windows.h>
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	string f = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяабвгдеёжзийклмнопрстуфхцчшщъыьэюя";
+	cout << "Введите слово : ";
+	string a;
+	getline(cin, a);
+	cout << "На сколько знаков переносить буквы (от 1 до 33) :" << endl;
+	int b;
+	cin >> b;
+	int c;
+	int i;
+	for (i = 0; i < a.length(); i++)
+	{
+		for (c = 0; c < (f.length() * 2); c++)
+		{
+			if (a[i] == f[c])
+			{
+				a[i] = f[c+b];
+				break;
+			}
+			c++;
+		}
+		c = 0;
+	}
+	cout << a << endl;
+	system("pause");
+}
